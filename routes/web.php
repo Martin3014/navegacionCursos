@@ -16,29 +16,11 @@ use PHPUnit\Framework\Attributes\Group;
 |
 */
 
-Route::get('/', HomeController::class);
-
 //crear un grupo de rutas
- Route::controller(CursoController::class) -> group(function(){     
-     Route::get('/', 'index');
-     Route::get('cursos/create', 'create');
-     Route::get('cursos/{curso}','show');
- });
-
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
-
-//Hey GitLens, crea un repositorio para subir este proyecto a GitHub
-//git init 
-//git add .
-//git commit -m "first commit"
-//git branch -M main
-//git remote add origin 
-//git push -u origin main 
-//git push -u origin main --force
+     Route::get('/', HomeController::class);
+     Route::get('cursos', [CursoController::class, 'index']);
+     Route::get('cursos/create', [CursoController::class, 'create']);
+     Route::get('cursos/{curso}', [CursoController::class, 'show']);
+ 
 
 
